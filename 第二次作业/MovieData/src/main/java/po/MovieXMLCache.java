@@ -9,9 +9,13 @@ import java.util.List;
  */
 public class MovieXMLCache {
 
-    private List<MovieXML> movieXMLList = new ArrayList<MovieXML>();
+    private List<MovieXML> movieXMLList;
+
+    private boolean isSorted;
 
     public MovieXMLCache() {
+        isSorted = false;
+        movieXMLList = new ArrayList<MovieXML>();
     }
 
     public List<MovieXML> getMovieXMLList() {
@@ -41,10 +45,31 @@ public class MovieXMLCache {
         if(start >= size){
             return result;
         }
-        for (int i = start; i < size; i++) {
+        for (int i = start;i < size && i < start+count; i++) {
             result.add(this.movieXMLList.get(i));
         }
         return result;
     }
+
+    public List<MovieXML> search(String keyword) {
+        List<MovieXML> result = new ArrayList<MovieXML>();
+        for(MovieXML movieXML:this.movieXMLList){
+            // chinese name
+            if(movieXML.getCname() != null && movieXML.getCname().contains(keyword)){
+                result.add(movieXML);
+                // english name
+            } else if(movieXML.getEname() != null && movieXML.getEname().contains(keyword)){
+                result.add(movieXML);
+                // casts name
+            } else if(movieXML.getCasts() != null && movieXML.getCasts().contains(keyword)){
+                result.add(movieXML);
+                // director
+            } else if(movieXML.getDirectors() != null && movieXML.getDirectors().contains(keyword)){
+                result.add(movieXML);
+            }
+        }
+        return result;
+    }
+
 }
 

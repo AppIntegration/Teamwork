@@ -21,6 +21,7 @@ public class MovieDataXmlImpl implements MovieDataService {
 
     public MovieDataXmlImpl() {
         movieDigester = new MovieDigester();
+        // read xml
         movieXMLCache= movieDigester.getMovieCache();
     }
 
@@ -31,6 +32,11 @@ public class MovieDataXmlImpl implements MovieDataService {
 
     public List<Movie> getMovieOf2016(int start, int count) {
         List<MovieXML> movieXMLList = movieXMLCache.getMovieXMLList(start,count);
+        return this.convert(movieXMLList);
+    }
+
+    public List<Movie> search(String keyword) {
+        List<MovieXML> movieXMLList = movieXMLCache.search(keyword);
         return this.convert(movieXMLList);
     }
 

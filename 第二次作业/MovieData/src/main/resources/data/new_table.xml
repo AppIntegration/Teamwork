@@ -1,9 +1,6 @@
 <?xml version="1.0"?>
 <RECORDS>
     <RECORD>
-        <imdbId>tt000001</imdbId>
-        <doubanId>25726641</doubanId>
-        <ename>lord</ename>
         <cname>爵迹</cname>
         <year>2016</year>
         <doubanScore>4.3</doubanScore>
@@ -12,8 +9,7 @@
         <imdbVote>1000</imdbVote>
         <timeScore>4.6</timeScore>
         <timeVote>3000</timeVote>
-        <genre>奇幻;魔幻;神秘</genre>
-        <cast>王嘉琛;孙康;王梦麟</cast>
+        <cast>王嘉琛</cast>
         <directors>余旻晨</directors>
         <writers>波霸</writers>
         <etagline>This is a story about lord</etagline>

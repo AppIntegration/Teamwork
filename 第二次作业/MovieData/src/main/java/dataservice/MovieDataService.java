@@ -25,4 +25,12 @@ public interface MovieDataService {
      * @return
      */
     List<Movie> getMovieOf2016(int start, int count);
+
+    /**
+     * search movie by keyword
+     *
+     * @param keyword
+     * @return
+     */
+    List<Movie> search(String keyword);
 }

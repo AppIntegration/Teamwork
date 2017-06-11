@@ -63,6 +63,9 @@ public class Movie {
     }
 
     private List<String> convert(String genres) {
+        if(genres == null || genres.length() <= 1){
+            return new ArrayList<String>();
+        }
         String[] splits = genres.split(";");
 
         List<String> result = new ArrayList<String>();
