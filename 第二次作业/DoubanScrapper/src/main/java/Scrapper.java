@@ -23,7 +23,8 @@ public class Scrapper {
     }
 
     public void scrapMovie(int year, int totalNumber) {
-        int index = 0;
+        // http://api.douban.com/v2/movie/search?tag=2016&start=1831&count=20
+        int index = 1831;
         while (index < totalNumber) {
             // 拼接URL
             String url = getURL(year, index, countPerTime);
