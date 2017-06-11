@@ -13,9 +13,11 @@ import java.io.IOException;
  */
 public class MovieDigester {
 
+    private String xmlPath = "/Users/kylin/Desktop/Study/homework/Teamwork/第二次作业/MovieData/src/main/java/util/allfilms.xml";
+
     public MovieXMLCache getMovieCache() {
         // 定义要解析的 XML 的路径，并初始化工具类
-        File input = new File("/Users/kylin/Desktop/Study/homework/Teamwork/第二次作业/MovieData/src/main/resources/data/new_table.xml");
+        File input = new File(xmlPath);
 
         Digester digester = new Digester();
         digester.setValidating(false);
