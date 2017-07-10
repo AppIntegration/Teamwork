@@ -22,11 +22,15 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="Recommend" />
+        <module name="DoubanScrapper" />
+        <module name="MachineRecommend" />
+        <module name="第二次作业" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="1.8">
-      <module name="Recommend" target="1.8" />
+    <bytecodeTargetLevel>
+      <module name="DoubanScrapper" target="1.8" />
+      <module name="MachineRecommend" target="1.8" />
+      <module name="第二次作业" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

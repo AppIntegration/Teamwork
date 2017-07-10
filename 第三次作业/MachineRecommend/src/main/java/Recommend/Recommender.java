@@ -1,3 +1,8 @@
+package Recommend;
+
+import DataService.FilmSearch;
+import DataService.FilmSearchImpl;
+
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -10,8 +15,9 @@ public class Recommender {
 
     Map<String, Map<String, Double>> prefs;
 
-    public Recommender(Map<String,Map<String,Double>> map) {
-        prefs = map;
+    public Recommender() {
+        FilmSearch searcher=new FilmSearchImpl();
+        prefs = searcher.getMaps();
 //        final Map<String,Double> t1 = new HashMap<String, Double>(){{
 //            put("1", 1.5);
 //            put("2", 5.5);
@@ -178,12 +184,17 @@ public class Recommender {
     }
 
     public static void main(String[] args) {
-        Recommender recommender = new Recommender(null);
-        System.out.println(recommender.filmRecommend("Keven", recommender::simPearson, 2));
+        Recommender recommender = new Recommender();
+        System.out.println(recommender.filmRecommend("103214078", recommender::simPearson, 2));
+    }
+
+    public List<String> getRecommendFilms(String username,int num){
+//        Recommender recommender = new Recommender();
+        return filmRecommend("103214078", this::simPearson, 2);
     }
 
     interface SimilarityCalculator{
-        double calSim(Map<String, Double> m1, Map<String, Double> m2);
+        public double calSim(Map<String, Double> m1, Map<String, Double> m2);
     }
 
 }
