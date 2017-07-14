@@ -18,6 +18,7 @@ public class Recommender {
     public Recommender() {
         FilmSearch searcher=new FilmSearchImpl();
         prefs = searcher.getMaps();
+//        System.out.println(prefs.size());
 //        final Map<String,Double> t1 = new HashMap<String, Double>(){{
 //            put("1", 1.5);
 //            put("2", 5.5);
@@ -185,7 +186,7 @@ public class Recommender {
 
     public static void main(String[] args) {
         Recommender recommender = new Recommender();
-        System.out.println(recommender.filmRecommend("103214078", recommender::simPearson, 2));
+        System.out.println(recommender.filmRecommend("user1", recommender::simPearson, 2));
     }
 
     public List<String> getRecommendFilms(String username,int num){

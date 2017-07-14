@@ -204,9 +204,9 @@ public class DbStore {
 
         String sql = "select * from comments";
         PreparedStatement pst = null;
+
         try {
             pst=con.prepareStatement(sql);
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -217,19 +217,24 @@ public class DbStore {
                 String id = rs.getString("filmId");
                 Double rating= rs.getDouble("rating");
                 String username=rs.getString("username");
-                if(map.get("username")==null){
+                if(map.get(username)==null){
                     Map<String,Double> newmap=new HashMap<String,Double>();
                     newmap.put(id,rating);
                     map.put(username,newmap);
                 }else{
-                    Map<String,Double> peopleMap=map.get("username");
+                    Map<String,Double> peopleMap=map.get(username);
                     peopleMap.put(id,rating);
-                    map.replace(username,peopleMap);
+//                    map.replace(username,peopleMap);
+                    map.put(username,peopleMap);
                 }
             }
         } catch (SQLException e) {
+            System.out.println("something wrong");
             e.printStackTrace();
         }
+
+
+
 
         return map;
     }
